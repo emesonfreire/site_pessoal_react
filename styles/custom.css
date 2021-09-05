@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
+/* utilizo asterisco para que as alterações que ficarão no colchetes sirvam para toda a página   */
 *{
     margin: 0;
     padding: 0;
@@ -11,8 +12,17 @@ html{
     scroll-behavior: smooth;
 }
 
+/* Menu fixo no rodapé */
+/*html, body{
+    height: 100%;
+}*/
+
 body{
     background-color: #0c0f16;
+
+    /* Menu fixo no rodapé */
+    /*display: flex;
+    flex-direction: column;*/
 }
 
 .max-width{
@@ -26,63 +36,66 @@ body{
     z-index: 999;
     padding: 20px 0;
     font-family: 'Ubuntu', sans-serif;
-    background-color: #121721;
+    background-color: #280753;
     /*background-color: none;*/
     border-bottom: solid #1b202a 1px;
 }
+/* deixando o site responsivo eu posso aproveitar da class max-width e unir em outras classe como o exemplo abaixo*/
 .navbar .max-width{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* aling-items é em relação a margem superior e inferior*/
+    justify-content: space-between;  /*espaço entre os elementos de forma igual (é o mesmo que falar que quero
+                                     que ele coloque espaço entre os itens utilizando o espaço disponível)*/
 }
 .navbar .logo a{
-    color: #547ec7;
+    color: #d9d0ee;
     font-size: 35px;
     font-weight: 500;
 }
 .navbar .menu li{
-    list-style: none;
-    display: inline-block;
+    list-style: none;  /* retira o circulo da lista*/
+    display: inline-block; /* coloca tudo em uma única linha*/
 }
 .navbar .menu li a{
     display: block;
     color: #fff;
     font-size: 18px;
     font-weight: 400;
-    margin-left: 25px;
+    margin-left: 50px; /*margem em relação a lateral esquerda*/
 }
 .menu-btn{
     color: #fff;
     font-size: 23px;
-    cursor: pointer;
-    display: none;
+    cursor: pointer; /* mostra para o usuário que é clicável sobre esse ícone*/
+    display: none;  /*oculta o ícone*/
 }
-@media (max-width: 947px){
+/* para identificar o tamanho da tela do dispositivo eu utilizo as informações de @media*/
+@media (max-width: 947px){   /*ele vai apresentar o icone ate 947 do tamanho da tela, após isso ele desaparece*/
     .menu-btn{
         display: block;
         z-index: 999;
     }
-    .menu-btn i.active:before{
-        content: "\f00d";
+    .menu-btn i.active:before{  /* para aparecer o X para fechar*/
+        content: "\f00d"; /*ícone do X */
     }
     .navbar .menu{
         background-color: #121721;
         position: fixed;
-        height: 100vh;
+        height: 100vh; /*significa que eu quero que ele ocupe 100% da tela em forma de lista quando estiver em dispositivo móvel*/
         width: 100%;
         left: -100%;
         top: 0;
-        text-align: center;
+        text-align: center; /*em relação a lateral esquerda e direita*/
         padding-top: 80px;
-        transition: all 0.3s ease;
+        transition: all 0.3s ease;  /*transição da do menu de forma mais suave*/
     }
-    .navbar .menu.active{
+    .navbar .menu.active{  /* fuções Js da biblioteca jquery*/
         left: 0;
     }
-    .navbar .menu li{
+    .navbar .menu li{   /* fuções Js da biblioteca jquery*/
         display: block;
     }
-    .navbar .menu li a{
+    .navbar .menu li a{  /* fuções Js da biblioteca jquery*/
         display: inline-block;
         margin: 13px 0;
         font-size: 25px;
@@ -101,18 +114,26 @@ section{
     }
 }
 .top{
-    color: #fff;
+    color: rgba(255, 255, 255, 0.87);
     display: flex;
-    background: url('../public/topo_v2.jpg') no-repeat center;
+    background: url('/src/images/components/topo_v6.jpg') no-repeat center;
     height: 100vh;
-    min-height: 500px;
+    min-height: 800px;
     background-attachment: fixed;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
+    text-align:right;
 }
 .top .max-width{
     width: 100%;
     display: flex;
+}
+.top .top-content .perfil{
+    width: 15%;
+    margin-top: 100px;
+    margin-left: 18px;
+    border-radius: 5%;
+    
 }
 .top .top-content .text-1{
     font-size: 25px;
@@ -129,14 +150,14 @@ section{
 }
 .top .top-content a{
     display: inline-block;
-    background: #b02ab7;
-    color: #fff;
+    background: #330274;
+    color: rgb(248, 248, 248);
     font-size: 25px;
     padding: 12px 36px;
     margin-top: 20px;
     font-weight: 300;
     border-radius: 6px;
-    border: 2px solid #b02ab7;
+    border: 2px solid #b6b6b6;
     transition: all 0.3s ease;
 }
 .top .top-content a:hover{
@@ -154,6 +175,7 @@ section{
     margin: 40px 0;
     font-weight: 400;
     font-size: 35px;
+    color: #330274;
 }
 .services .serv-content{
     display: flex;
@@ -192,6 +214,12 @@ section{
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
+.services .serv-content .card .tecnologia1{
+   width: 50%;
+   display: flex ;
+   margin-left: 25%;
+   
+
 @media (max-width: 947px){
     .services .serv-content .card{
         width: calc(50% - 10px);
@@ -203,7 +231,7 @@ section{
         width: 100%;
     }
 }
-
+}
 .contact{
     color: #fff;
     background-color: #151921;
@@ -328,13 +356,16 @@ section{
     }
 }
 
+
+
 footer{
-    background-color: #121721;
+    background-color: #280753;
     padding: 25px 23px;
     color: #fff;
     text-align: center;
     margin-top: auto;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 }
 footer span a{
     color: #547ec7;
